@@ -1,8 +1,7 @@
 {
-  "name": "web-extractor",
+  "name": "knobble",
   "version": "0.0.1",
-  "description": "Observable-based framework for extracting data from websites.",
-  "main": "main.ts",
+  "description": "Observable-based framework for extracting data from websites, especially when it's a bit more complex or bespoke than a simple crawler will do.",
   "author": "Gideon Farrell <gideon@gtf.io>",
   "license": "MIT",
   "private": false,
