@@ -14,9 +14,25 @@ type DownloadQueue = Download[];
 
 type CloseFn = () => void;
 
+export interface Downloader {
+  (url: string): Promise<Response>
+}
+
 export interface DownloadPool {
-  download: (url: string) => Promise<Response>;
-  close: () => void;
+  download: Downloader;
+  close: CloseFn;
+}
+
+export class DownloadError extends Error {
+  url: string;
+  status: number;
+
+  constructor(url: string, status: number) {
+    super(`Unable to download ${url}, status ${status}`);
+    Object.setPrototypeOf(this, DownloadError.prototype);
+    this.url = url;
+    this.status = status;
+  }
 }
 
 export class PoolClosedError extends Error {

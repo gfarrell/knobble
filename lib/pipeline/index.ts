@@ -1,18 +1,10 @@
 import { Subject, Observable } from "rxjs";
-
-export interface Target {
-  url: string;
-}
-
-type NextFn = (t: Target) => void;
-type StopFn = () => void;
+import { Target } from "./targets";
+import { Sink } from "./sinks";
+import { NextFn, StopFn } from "./common";
 
 export interface Source {
   (next: NextFn): StopFn
-}
-
-export interface Sink {
-  (next: NextFn): (t: Target) => Promise<void>
 }
 
 interface Pipeline {

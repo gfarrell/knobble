@@ -25,7 +25,7 @@ ideas as to how it can be used.
   - [x] Create pipeline functions for connecting things
   - [x] Create download helper for pooling connections
   - [x] Create a link extraction helper
-  - [ ] Create basic factories for crawling pages as a SourceSink
+  - [x] Create basic factories for crawling pages as a SourceSink
   - [ ] Create basic sinks for downloading files and writing data files (CSV, JSON)
   - [ ] Make a nice CLI to show the queue count, progress indicators, current
     processes, etc..

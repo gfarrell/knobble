@@ -1,6 +1,8 @@
 import { spy } from "sinon";
 import { times } from "lodash";
-import { connect, Source, Sink, Target } from "./";
+import { connect, Source } from "./";
+import { Target } from "./targets";
+import { Sink } from "./sinks";
 
 /* eslint-disable-next-line @typescript-eslint/no-empty-function */
 const noop = () => {};
