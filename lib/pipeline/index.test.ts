@@ -1,8 +1,8 @@
 import { spy } from "sinon";
 import { times } from "lodash";
 import { connect, Source } from "./";
-import { Target } from "./targets";
-import { Sink } from "./sinks";
+import { Target } from "../targets";
+import { Sink } from "../sinks";
 
 /* eslint-disable-next-line @typescript-eslint/no-empty-function */
 const noop = () => {};
@@ -64,7 +64,7 @@ describe("Pipeline#connect creates a pipeline object", () => {
       pipeline.start();
       trigger();
 
-      await awaitPredicate(() => received.length >= allEvents.length);
+      await awaitPredicate(() => received.length == allEvents.length);
 
       expect(received.length).toEqual(allEvents.length);
       expect(comparableList(received)).toEqual(comparableList(allEvents));

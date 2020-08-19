@@ -1,7 +1,7 @@
-import { crawlerFactory, AddFilter } from "./sinks";
-import { NextFn } from "./common";
+import { crawlerFactory, AddFilter } from "./";
+import { NextFn } from "../common";
 import { Response } from "node-fetch";
-import { Target } from "./targets";
+import { Target } from "../targets";
 import { spy, fake } from "sinon";
 
 describe("crawlerFactory", () => {

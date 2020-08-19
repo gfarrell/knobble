@@ -1,5 +1,5 @@
-import { Target } from "./targets";
-import { NextFn } from "./common";
+import { Target } from "../targets";
+import { NextFn } from "../common";
 import { Downloader } from "../helpers/downloader";
 import { linkExtractor } from "../helpers/link_extractor";
 import { unary } from "lodash/fp";

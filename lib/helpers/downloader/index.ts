@@ -59,7 +59,7 @@ const createDownloadWorker = (queue: DownloadQueue, interval: number): CloseFn =
       download = queue.shift();
       try {
         download.resolve(
-          await fetch(download.url, { signal: controller.signal })
+          await fetch(encodeURI(download.url), { signal: controller.signal })
         );
       } catch(e) {
         download.reject(e);

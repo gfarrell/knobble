@@ -1,7 +1,7 @@
 import { Subject, Observable } from "rxjs";
-import { Target } from "./targets";
-import { Sink } from "./sinks";
-import { NextFn, StopFn } from "./common";
+import { Target } from "../targets";
+import { Sink } from "../sinks";
+import { NextFn, StopFn } from "../common";
 
 export interface Source {
   (next: NextFn): StopFn
