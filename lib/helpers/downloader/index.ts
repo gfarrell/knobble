@@ -1,9 +1,10 @@
-import fetch, { Response } from "node-fetch";
+import fetch, { Response, RequestInit } from "node-fetch";
 import AbortController from "node-abort-controller";
 import { times } from "lodash";
 
 interface Download {
   url: string;
+  options?: RequestInit;
   complete: boolean;
   success: boolean;
   resolve: (res: Response) => void;
@@ -15,7 +16,7 @@ type DownloadQueue = Download[];
 type CloseFn = () => void;
 
 export interface Downloader {
-  (url: string): Promise<Response>
+  (url: string, init?: RequestInit): Promise<Response>
 }
 
 export interface DownloadPool {
@@ -83,9 +84,9 @@ export function createDownloadPool(size: number, pollInterval = 100): DownloadPo
   let closed = false;
   const queue: DownloadQueue = [];
   const pool = times(size, () => createDownloadWorker(queue, pollInterval));
-  const download = (url: string): Promise<Response> => {
+  const download = (url: string, options?: RequestInit): Promise<Response> => {
     if(closed) throw new PoolClosedError();
-    const dl: Partial<Download> = { url };
+    const dl: Partial<Download> = { url, options };
     const resp: Promise<Response> = new Promise((resolve, reject) => {
       dl.resolve = (response: Response) => {
         dl.complete = true;
@@ -109,4 +110,13 @@ export function createDownloadPool(size: number, pollInterval = 100): DownloadPo
   };
 
   return { download, close };
+}
+
+let GLOBAL_POOL: DownloadPool;
+
+export function getGlobalPool(): DownloadPool {
+  if(!GLOBAL_POOL) {
+    GLOBAL_POOL = createDownloadPool(10);
+  }
+  return GLOBAL_POOL;
 }
