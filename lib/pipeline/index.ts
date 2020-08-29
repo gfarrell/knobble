@@ -12,7 +12,7 @@ interface Pipeline {
   stop: () => void;
 }
 
-export function connect(sources: Source[], sinks: Sink[]): Pipeline {
+export function connect(sources: Source[], sinks: Sink<Target>[]): Pipeline {
   const ourobos = new Subject<Target>();
   const nextFn: NextFn = ourobos.next.bind(ourobos);
 

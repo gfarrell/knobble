@@ -35,7 +35,7 @@ describe("Pipeline#connect creates a pipeline object", () => {
         events.map((t) => next(t));
         return noop;
       };
-      const mySink: Sink = () => async (t) => {
+      const mySink: Sink<Target> = () => async (t) => {
         received.push(t);
       };
       connect([mySource], [mySink]).start();
@@ -56,7 +56,7 @@ describe("Pipeline#connect creates a pipeline object", () => {
         batch1.map((t) => next(t));
         return noop;
       };
-      const mySink: Sink = () => async (t) => {
+      const mySink: Sink<Target> = () => async (t) => {
         received.push(t);
       };
       const pipeline = connect([mySource], [mySink]);
@@ -79,7 +79,7 @@ describe("Pipeline#connect creates a pipeline object", () => {
         trigger = () => events.forEach((t) => next(t));
         return noop;
       };
-      const mySink: Sink = () => async (t) => {
+      const mySink: Sink<Target> = () => async (t) => {
         receivedSink.push(t);
       };
       const pipeline = connect([mySource], [mySink]);
