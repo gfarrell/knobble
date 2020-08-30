@@ -30,7 +30,7 @@ ideas as to how it can be used.
   - [x] Create basic sinks for downloading files and writing data files (CSV, JSON)
 - [x] Add a Sink-retry wrapper (higher-order sink)
 - [x] Add a URL filter
-- [ ] Write some examples
+- [x] Write some examples
 - [ ] Find a nice way to handle errors
 - [ ] Make it a proper library with a good build toolchain
 - [ ] Make a nice CLI to show the queue count, progress indicators, etc.
