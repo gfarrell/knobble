@@ -28,7 +28,7 @@ ideas as to how it can be used.
   - [x] Create basic factories for crawling pages as a SourceSink
   - [x] See if you can replace the download pool with HTTP[S].Agent
   - [x] Create basic sinks for downloading files and writing data files (CSV, JSON)
-- [ ] Add a Sink-retry wrapper (higher-order sink)
+- [x] Add a Sink-retry wrapper (higher-order sink)
 - [x] Add a URL filter
 - [ ] Write some examples
 - [ ] Find a nice way to handle errors
