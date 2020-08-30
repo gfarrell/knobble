@@ -1,4 +1,5 @@
-import { rawFileDownloaderFactory, NoDirectoryAccessError } from "./file_downloader_factory";
+import { rawFileDownloaderFactory } from "./file_downloader_factory";
+import { NoDirectoryAccessError } from "../common";
 import { FileDownloadTarget } from "../targets";
 import { DownloadError } from "../helpers/downloader";
 import os from "os";

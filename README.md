@@ -21,17 +21,19 @@ ideas as to how it can be used.
 
 ## TODO
 
-- [ ] Finish off rewrite
+- [x] Finish off rewrite
   - [x] Create pipeline functions for connecting things
   - [x] Create download helper for pooling connections
   - [x] Create a link extraction helper
   - [x] Create basic factories for crawling pages as a SourceSink
-  - [ ] Create basic sinks for downloading files and writing data files (CSV, JSON)
-  - [ ] Make a nice CLI to show the queue count, progress indicators, current
-    processes, etc..
-  - [ ] Find a nice way to handle errors
-  - [ ] Make it a proper library with a good build toolchain
+  - [x] See if you can replace the download pool with HTTP[S].Agent
+  - [x] Create basic sinks for downloading files and writing data files (CSV, JSON)
+- [ ] Add a Sink-retry wrapper (higher-order sink)
+- [x] Add a URL filter
 - [ ] Write some examples
+- [ ] Find a nice way to handle errors
+- [ ] Make it a proper library with a good build toolchain
+- [ ] Make a nice CLI to show the queue count, progress indicators, etc.
 - [ ] Finish README documentation
 
 ## Basic Usage

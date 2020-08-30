@@ -6,16 +6,7 @@ import { stat, access } from "fs/promises";
 import { constants, createWriteStream } from "fs";
 import { pipeline } from "stream";
 import { TargetTypeFilter } from "./filter";
-
-export class NoDirectoryAccessError extends Error {
-  path: string;
-
-  constructor(path: string) {
-    super(`Unable to access ${path} -- either it does not exist or is not writable.`);
-    Object.setPrototypeOf(this, NoDirectoryAccessError.prototype);
-    this.path = path;
-  }
-}
+import { NoDirectoryAccessError } from "../common";
 
 export const rawFileDownloaderFactory = (download: Downloader): Sink<FileDownloadTarget> => {
   return () => async (target: FileDownloadTarget): Promise<void> => {
